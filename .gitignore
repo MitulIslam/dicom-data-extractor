@@ -1,1 +1,5 @@
 env
+image/
+data/
+dicom/
+*.flif
