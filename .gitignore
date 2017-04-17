@@ -1,5 +1,9 @@
 env
 image/
+flif/
+backup/
 data/
 dicom/
 *.flif
+*.pnm
+*.dcm
