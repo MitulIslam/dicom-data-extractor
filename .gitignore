@@ -1,9 +1,11 @@
 env
-image/
-flif/
-backup/
-data/
-dicom/
+image/*
+flif/*
+backup/*
+data/*
+dicom/*
+merged_dicom/*
+extracted_pnm/*
 *.flif
 *.pnm
 *.dcm

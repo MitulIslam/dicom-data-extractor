@@ -1,37 +1,39 @@
+import csv
 import dicom
 import os
-import csv
 
-directory_data = os.listdir("data/")
-dicom_dir = os.listdir("image/")
+# flif to pnm
+flif_dir = os.listdir("flif/")
+print flif_dir
+
+for flif_file in flif_dir:
+    # print "flif flif/%s extracted_pnm/%spnm -V" % (flif_file, flif_file[:-4])
+    os.system("flif flif/%s extracted_pnm/%spnm -V" % (flif_file, flif_file[:-4]))
+
+# pnm to dcm
+img_dir = os.listdir("extracted_pnm/")
+print img_dir
+
+for img in img_dir:
+    os.system("gdcmimg extracted_pnm/%s merged_dicom/%s.dcm" % (img, img[:-4]))
+
+# csv to dcm
+csv_dir = os.listdir("data/")
+print csv_dir
+
+dicom_dir = os.listdir("merged_dicom/")
 print dicom_dir
-print directory_data
+
 dicom_file = []
 
-# f = open('attendees1.csv')
-# csv_f = csv.reader(f)
-
-# f = open("CR.1.3.51.0.7.1662753766.59086.8771.36000.27815.52340.23289.csv", "rb")
-# csv_f = csv.reader(f)
-#
-# for row in csv_f:
-#     print row
 for dicoms in dicom_dir:
     if str(dicoms).endswith(".dcm"):
         dicom_file.append(dicoms[:-4])
 print dicom_file
 
-for csvfile in directory_data:
-    # f = open("data/" + str(csvfile), "rb")
-    # csv_f = csv.reader(f)
-    #
-    # print "--------------------------------csv data--------------------------------"
-    # for row in csv_f:
-    #     print row[0]
-    #
-    # f.close()
+for csvfile in csv_dir:
     if csvfile[:-4] in dicom_file:
-        dcm_file_path = "image/" + str(csvfile[:-4]) + ".dcm"
+        dcm_file_path = "merged_dicom/" + str(csvfile[:-4]) + ".dcm"
         read_dicom_file = dicom.read_file(dcm_file_path)
         all_tags = read_dicom_file.dir()
         print str(read_dicom_file.dir())
@@ -56,11 +58,3 @@ for csvfile in directory_data:
                         print "New Tags " + str(row[0]) + " , " + str(row[1])
                     except Exception as e:
                         print "Cannot insert new tag to dicom. Reason: " + str(e)
-
-
-# for data in directory_data:
-#     with open("data/" + str(data[:-4]) + ".csv", "r") as data_file:
-#         print "----------------------- dicom data -----------------------"
-#         print data_file
-#         for data in data_file:
-#             print data
