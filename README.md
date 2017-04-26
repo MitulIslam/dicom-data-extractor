@@ -11,15 +11,20 @@ Used flif for intermidiate image compression.
   
 # Installation
   for ubuntu run install.sh file
+  
   `chmod 777 install.sh`
+  
   `./install.sh`
   
   or 
   
   create this diroctories in project root
   `data` `dicom` `extracted_pnm` `flif` `image` `merged_dicom`
+  
   install [dcmtk](http://support.dcmtk.org/docs/file_install.html)
+  
   install [gdcm tools](http://gdcm.sourceforge.net/wiki/index.php/Main_Page)
+  
   install [FLIF](https://github.com/FLIF-hub/FLIF)
   
 # Usage
