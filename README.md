@@ -1,8 +1,8 @@
 # Dicom Data Extractor
 
-Simple python script to extract data and image from dicom and merge data and image back to dicom.
+Simple python script to extract data ,put them in .csv file and .pnm image. Also merge data and image back to dicom file.
 Used flif for intermidiate image compression.
-
+  
 # Dependencies
   `git` 
   `make`
@@ -10,7 +10,7 @@ Used flif for intermidiate image compression.
   `virtual-env`
   
 # Installation
-  for ubuntu run install.sh file
+  for ubuntu run install.sh file, needs permission to globally install packages
   
   `chmod 777 install.sh`
   
@@ -28,4 +28,7 @@ Used flif for intermidiate image compression.
   install [FLIF](https://github.com/FLIF-hub/FLIF)
   
 # Usage
+  make a virtualenv `virtualenv env`
+  activate `source env/bin/activate`
+  install python dependencies `pip install -r requirements.txt`
   just run extract_from_dcm.py or merge_to_dcm.py
