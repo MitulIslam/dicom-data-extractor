@@ -12,9 +12,13 @@ Used flif for intermidiate image compression.
 # Installation
   for ubuntu run install.sh file, needs permission to globally install packages
   
-  `chmod 777 install.sh`
+  ```sh
+  chmod 777 install.sh
+  ```
   
-  `./install.sh`
+  ```sh
+  ./install.sh
+  ```
   
   or 
   
@@ -28,7 +32,22 @@ Used flif for intermidiate image compression.
   install [FLIF](https://github.com/FLIF-hub/FLIF)
   
 # Usage
-  make a virtualenv `virtualenv env`
-  activate `source env/bin/activate`
-  install python dependencies `pip install -r requirements.txt`
+  make a virtualenv 
+  
+  ```sh
+  virtualenv env
+  ```
+  
+  activate 
+  
+  ```sh
+  source env/bin/activate
+  ```
+  
+  install python dependencies 
+  
+  ```sh
+  pip install -r requirements.txt
+  ```
+  
   just run extract_from_dcm.py or merge_to_dcm.py
